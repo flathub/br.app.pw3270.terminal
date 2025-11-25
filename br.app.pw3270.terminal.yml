@@ -50,5 +50,5 @@ modules:
           - tag-pattern: ([\\d.]+)$
           - is-important: true
     post-install:
-      - /usr/bin/glib-compile-schemas /app/share/glib-2.0/schemas/
+      - /usr/bin/glib-compile-schemas /app/share/glib-2.0/schemas/ 
           
