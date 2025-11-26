@@ -50,5 +50,7 @@ modules:
           - tag-pattern: ([\\d.]+)$
           - is-important: true
     post-install:
+      - echo "Compiling schemas"
+      - find .
       - /usr/bin/glib-compile-schemas /app/share/glib-2.0/schemas/ 
           
