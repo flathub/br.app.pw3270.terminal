@@ -26,9 +26,9 @@ modules:
         tag: "master"
         url: https://github.com/PerryWerneck/lib3270
         x-checker-data:
-          - type: git
-          - tag-pattern: ([\\d.]+)$
-          - is-important: true
+          type: git
+          tag-pattern: ^([\d.]+)$
+          is-important: true
   - name: libv3270
     buildsystem: meson
     sources:
@@ -36,9 +36,9 @@ modules:
         tag: "master"
         url: https://github.com/PerryWerneck/libv3270
         x-checker-data:
-          - type: git
-          - tag-pattern: ([\\d.]+)$
-          - is-important: true
+          type: git
+          tag-pattern: ^([\d.]+)$
+          is-important: true
   - name: pw3270
     buildsystem: meson
     sources:
@@ -46,9 +46,9 @@ modules:
         tag: "develop"
         url: https://github.com/PerryWerneck/pw3270
         x-checker-data:
-          - type: git
-          - tag-pattern: ([\\d.]+)$
-          - is-important: true
+          type: git
+          tag-pattern: ^([\d.]+)$
+          is-important: true
     post-install:
       - echo "Compiling schemas"
       - /usr/bin/glib-compile-schemas /app/share/glib-2.0/schemas/ 
