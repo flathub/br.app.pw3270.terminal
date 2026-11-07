@@ -4,52 +4,55 @@ runtime-version: '51'
 sdk: org.gnome.Sdk
 command: pw3270
 finish-args:
-  - "--share=network"
-  - "--share=ipc"
-  - "--socket=fallback-x11"
-  - "--socket=wayland"
+  - --share=network
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
 cleanup:
-  - "/include"
-  - "/lib/pkgconfig"
-  - "/man"
-  - "/share/doc"
-  - "/share/gtk-doc"
-  - "/share/man"
-  - "/share/pkgconfig"
-  - "*.la"
-  - "*.a"
+  - /include
+  - /lib/pkgconfig
+  - /man
+  - /share/doc
+  - /share/gtk-doc
+  - /share/man
+  - /share/pkgconfig
+  - '*.la'
+  - '*.a'
 modules:
   - name: lib3270
     buildsystem: meson
     sources:
       - type: git
-        tag: "master"
+        tag: 6.0.0
         url: https://github.com/PerryWerneck/lib3270
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
           is-important: true
+        commit: 37632f7d928f9daf951591f907b1e893bf279542
   - name: libv3270
     buildsystem: meson
     sources:
       - type: git
-        tag: "master"
+        tag: 5.5.0
         url: https://github.com/PerryWerneck/libv3270
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
           is-important: true
+        commit: b290a714b7b6ca4dd0f556dfae278c3a939ae458
   - name: pw3270
     buildsystem: meson
     sources:
       - type: git
-        tag: "develop"
+        tag: 5.5.0
         url: https://github.com/PerryWerneck/pw3270
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
           is-important: true
+        commit: 88fc0c73b343188b3455770686dbc18f7536dc06
     post-install:
       - echo "Compiling schemas"
-      - /usr/bin/glib-compile-schemas /app/share/glib-2.0/schemas/ 
-          
+      - /usr/bin/glib-compile-schemas /app/share/glib-2.0/schemas/
+
